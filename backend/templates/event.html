@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <!-- End Navbar -->
+        <div class="container-fluid py-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row mt-5">
+                        <div class="col-lg-5 mb-lg-0 mb-4">
+                            <div class="card z-index-2">
+                                <div class="card-body p-2">
+                                    
+                                        <h5 class="custom-heading">Event Title:</h5>
+                                        <p>{{ event_id.proposed_title }}</p>
+
+                                        <h5 class="custom-heading">Sponsor:</h5>
+                                        <p>{{ event_id.org }}</p>
+
+                                        <h5 class="custom-heading">Event Type:</h5>
+                                        <p>{{ event_id.event_type }}</p>
+
+                                        <h5 class="custom-heading">Date/Time</h5>
+                                        <p>{{ event_id.start_time.date }} by {{ event_id.start_time.time }}</p>
+
+                                        <h5 class="custom-heading">Description:</h5>
+                                        <p style="text-align: justify;">{{ event_id.description }}</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="card z-index-2">
+                                <div class="card-header pb-0 d-flex justify-content-between align-items-center">
+                                    <a class="btn btn-outline-primary btn-sm mb-0 me-3" href="{% url 'event_list' %}">Back to List</a>
+                                </div>
+                                <div class="card-body pb-2">
+                                    
+                                        {% if event_id.flier %}
+                                            <div class="d-flex align-items-start align-items-sm-center gap-4">
+                                                <img src="{{ event_id.flier.url }}" alt="id-card" class="img-fluid"
+                                                     width="100%" id="id-cards" />
+                                            </div>
+                                        {% endif %}
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'base/footer.html' %}
+    </main>
+</body>
+{% endblock content %}

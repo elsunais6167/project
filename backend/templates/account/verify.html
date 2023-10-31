@@ -1,0 +1,22 @@
+{% autoescape off %}
+
+    <h3> Hi {{ user.name }}, </h3>
+
+    <p> Your account has been created! with the following login details </p>
+
+    <h4> Email: {{user.email}} </h4>
+    If this account is generated for you by NCCC,
+    <h4>Your Password: Nccc@COP28 </h4> ignore this password, if not.
+
+    <p> Please click on the link below to verify your email and activate your account:
+
+        <strong> http://{{ domain }}{% url 'activate' uidb64=uid token=token %} </strong>
+    </p>
+
+    <p> Kindly reset your password, immediately after account verification, if your account is created by NCCC. </p>
+
+    <p> Thank you. </p>
+    <p> NCCC Tech Support Team </p>
+
+
+{% endautoescape %}

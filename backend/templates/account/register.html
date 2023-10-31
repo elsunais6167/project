@@ -1,0 +1,73 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+        navbar-scroll="true">
+        <div class="container-fluid py-1 px-3">
+
+               
+            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                    <div class="input-group">
+                        <span class="input-group-text text-body"><i class="fas fa-search"
+                                aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" placeholder="Type here...">
+                    </div>
+                </div>
+                <ul class="navbar-nav  justify-content-end">
+                    <li class="nav-item d-flex align-items-center">
+                        <a class="btn btn-outline-primary btn-sm mb-0 me-3"  href="{% url 'home' %}">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-8 col-lg-10 col-md-12 d-flex flex-column mx-auto">
+            <div class="card card-plain mt-8">
+                <div class="card-header pb-0 text-left bg-transparent">
+                    <h3 class="font-weight-bolder text-info text-gradient" style="text-align: center;">Create Account</h3>
+
+                </div>
+                <div class="contact-form">
+                    {% if messages %}
+
+                    {% for message in messages %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+
+                    {% endif %}
+                    <form id="contact" action="{% url 'register' %}" method="post">
+                        {% csrf_token %}
+
+                        {{form}}
+
+                        <div class="text-center">
+                            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+            
+        </div>
+        <br>
+        <div class="card-footer text-center pt-0 px-lg-2 px-1">
+            <p class="mb-4 text-sm mx-auto">
+                Do you login details already?
+                <a href="{% url 'login' %}" class="text-info text-gradient font-weight-bold">Login Here!</a>
+            </p>
+        </div>
+    </div>
+</div>
+</main>
+{% include 'base/footer.html' %}
+{% endblock content %}

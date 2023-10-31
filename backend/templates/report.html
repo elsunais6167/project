@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+{% load embed_video_tags %}
+{% load static %}
+
+{% block content %}
+
+        <!-- End Navbar -->
+        <div class="container-fluid py-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row mt-5">
+                        <div class="col-lg-5 mb-lg-0 mb-4">
+                            <div class="card z-index-2">
+                                <div class="card-body p-2">
+                                    
+                                        <h5 class="custom-heading">Event Title:</h5>
+                                        <p>{{ report_id.event.proposed_title }}</p>
+
+                                        <h5 class="custom-heading">Sponsor:</h5>
+                                        <p>{{ report_id.event.org }}</p>
+
+                                        <h5 class="custom-heading">Date/Time:</h5>
+                                        <p>{{ report_id.event.start_time.date }} by {{ report_id.event.start_time.time }}</p>
+
+                                        <h5 class="custom-heading">Link to Event Images:</h5>
+                                        <a href="{{ report_id.image_url }}">{{ report_id.image_url }}</a>
+
+                                        <h5 class="custom-heading">Description:</h5>
+                                        <p style="text-align: justify;">{{ report_id.description }}</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="card z-index-2">
+                                <div class="card-header pb-0 d-flex justify-content-between align-items-center">
+                                    <a class="btn btn-outline-primary btn-sm mb-0 me-3" href="{% url 'report_list' %}">Back to List</a>
+                                </div>
+                                <div class="card-body pb-2">
+                                    
+                                        {% if report_id.video_url %}
+                                            <div class="d-flex align-items-start align-items-sm-center gap-4">
+                                                {% video report_id.video_url '960x480' %}
+                                            </div>
+                                        {% endif %}
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'base/footer.html' %}
+    </main>
+</body>
+{% endblock content %}
