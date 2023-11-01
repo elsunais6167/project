@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--j@&$i6kmjn!8!a365e*va8u$ri#f$%jnjz1#)-w@)l@6!1gjk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -138,7 +138,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'backend/static')
 ]
-# Default primary key field type
+
+MEDIA_ROOT = '/home/portal.natccc.gov.ng/public_html/media/'
+STATIC_ROOT = '/home/portal.natccc.gov.ng/public_html/static/'
+
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
