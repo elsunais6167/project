@@ -65,7 +65,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
             'token': token,
         })
 
-        send_mail(mail_subject, message, 'portal@natccc.gov.ng', [self.email], html_message=message)
+        send_mail(mail_subject, message, 'no-reply@mhinnov8.com.ng', [self.email], html_message=message)
 
     def __str__(self):
         return self.email
@@ -338,7 +338,7 @@ class COPParticipant(models.Model):
             'token': token,
         })
 
-        send_mail(mail_subject, message, 'portal@natccc.gov.ng', [self.email])
+        send_mail(mail_subject, message, 'no-reply@mhinnov8.com.ng', [self.email])
 
     def __str__(self):
         return self.name

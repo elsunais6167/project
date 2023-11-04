@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--j@&$i6kmjn!8!a365e*va8u$ri#f$%jnjz1#)-w@)l@6!1gjk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'backend.middleware.SessionTimeoutMiddleware',
+    #'backend.middleware.SessionTimeoutMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -139,17 +139,17 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'backend/static')
 ]
 
-MEDIA_ROOT = '/home/portal.natccc.gov.ng/public_html/media/'
-STATIC_ROOT = '/home/portal.natccc.gov.ng/public_html/static/'
+#MEDIA_ROOT = '/home/portal.natccc.gov.ng/public_html/media/'
+#STATIC_ROOT = '/home/portal.natccc.gov.ng/public_html/static/'
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-SESSION_COOKIE_AGE = 300
+#SESSION_COOKIE_AGE = 300
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'mail.natccc.gov.ng'
+EMAIL_HOST = 'mail.mhinnov8.com.ng'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'portal@natccc.gov.ng'
-EMAIL_HOST_PASSWORD = 'KAya-]gj)mt.'
+EMAIL_HOST_USER = 'no-reply@mhinnov8.com.ng'
+EMAIL_HOST_PASSWORD = '$$%#@!Es0!@#$'

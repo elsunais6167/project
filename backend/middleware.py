@@ -1,4 +1,5 @@
 # middleware.py
+'''
 from django.conf import settings
 
 from datetime import datetime
@@ -25,3 +26,4 @@ class SessionTimeoutMiddleware:
 
         response = self.get_response(request)
         return response
+'''
